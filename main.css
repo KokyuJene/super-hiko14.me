@@ -1,0 +1,213 @@
+@font-face {
+    font-family: 'jost';
+    src: url('https://kokyujene.github.io/fonts/Jost-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'jost';
+    src: url('https://kokyujene.github.io/fonts/Jost.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'zenkaku';
+    src: url('https://kokyujene.github.io/fonts/zenkaku.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'zenkaku';
+    src: url('https://kokyujene.github.io/fonts/zenkaku-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+  font-family: 'jost', 'zenkaku', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 50vh;
+}
+
+.box {
+  margin-bottom: 80vh;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.box.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title { 
+  font-size: 2rem; 
+  margin: 0; 
+}
+
+.sub-title { 
+  font-size: 1rem; 
+  color: gray; 
+  margin-top: 10px; 
+}
+
+.section-title { 
+  font-size: 1.5rem; 
+  margin: 0; 
+}
+
+.description { 
+  font-size: 1.1rem; 
+  line-height: 1.8; 
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+.game-list,
+.lang-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  display: inline-block;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.game-item,
+.lang-item {
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.game-item a {
+  padding: 10px 20px;
+}
+
+.game-item a::after {
+  bottom: 8px; /* カード内のリンクは内側に線を配置 */
+  left: 50%;
+}
+
+.game-item a:hover::after {
+  width: calc(100% - 40px);
+  left: 20px;
+}
+
+.lang-item {
+  padding: 10px 20px;
+}
+
+.game-item:hover,
+.lang-item:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.lang-item small {
+  font-size: 0.75rem;
+  color: #666;
+  margin-left: 5px;
+}
+
+.footer {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 20px;
+}
+
+/* スクロールインジケーター */
+.scroll-indicator {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid #333;
+  border-radius: 15px;
+  position: relative;
+}
+
+.mouse::before {
+  content: '';
+  width: 4px;
+  height: 8px;
+  background-color: #333;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  animation: mouse-scroll 1.6s infinite;
+}
+
+@keyframes mouse-scroll {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, 15px); opacity: 0; }
+}
+
+.arrows span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  transform: rotate(45deg);
+  margin: -4px;
+  animation: arrow-scroll 2s infinite;
+}
+
+.arrows span:nth-child(2) { animation-delay: -0.2s; }
+.arrows span:nth-child(3) { animation-delay: -0.4s; }
+
+@keyframes arrow-scroll {
+  0% { opacity: 0; transform: rotate(45deg) translate(-10px, -10px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(45deg) translate(10px, 10px); }
+}
