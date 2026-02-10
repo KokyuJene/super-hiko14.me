@@ -629,6 +629,26 @@ html[data-theme="dark"] .scroll-icon-dark {
     width: 20px;
     height: 20px;
   }
+
+  .nav-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav-button {
+    width: 80%;
+    max-width: 300px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+
+/* 非常に小さい画面（iPhone SEなど）への最適化 */
+@media screen and (max-width: 380px) {
+  .title {
+    font-size: 1.4rem;
+  }
 }
 
 /* Blog post page styles */
