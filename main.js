@@ -1,5 +1,11 @@
+// Theme management directly as early as possible to avoid flash
+(function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Theme management
+  // Theme management initialize buttons
   initTheme();
   
   // Scroll to top functionality
@@ -28,17 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initTheme() {
-  // Load saved theme or default to light
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.body.setAttribute('data-theme', savedTheme);
-
   // Theme toggle button
   const themeToggle = document.querySelector('.theme-toggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const currentTheme = document.body.getAttribute('data-theme');
+      const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.body.setAttribute('data-theme', newTheme);
+      document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
     });
   }

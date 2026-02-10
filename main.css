@@ -38,111 +38,111 @@ body {
 }
 
 /* Dark mode */
-body[data-theme="dark"] {
-  background-color: #131313;
-  color: #e0e0e0;
+html[data-theme="dark"] body {
+  background-color: #080808;
+  color: #d0d0d0;
 }
 
-body[data-theme="dark"] .sub-title {
-  color: #999;
-}
-
-body[data-theme="dark"] .description {
-  color: #ccc;
-}
-
-body[data-theme="dark"] .game-item,
-body[data-theme="dark"] .lang-item {
-  background-color: #2a2a2a;
-  color: #e0e0e0;
-}
-
-body[data-theme="dark"] .game-item:hover,
-body[data-theme="dark"] .lang-item:hover {
-  background-color: #3a3a3a;
-}
-
-body[data-theme="dark"] .nav-button {
-  background-color: #2a2a2a;
-  color: #e0e0e0;
-}
-
-body[data-theme="dark"] .nav-button:hover {
-  background-color: #3a3a3a;
-}
-
-body[data-theme="dark"] .footer {
+html[data-theme="dark"] .sub-title {
   color: #777;
 }
 
-body[data-theme="dark"] .scroll-indicator {
+html[data-theme="dark"] .description {
+  color: #bbb;
+}
+
+html[data-theme="dark"] .game-item,
+html[data-theme="dark"] .lang-item {
+  background-color: #1a1a1a;
+  color: #d0d0d0;
+}
+
+html[data-theme="dark"] .game-item:hover,
+html[data-theme="dark"] .lang-item:hover {
+  background-color: #252525;
+}
+
+html[data-theme="dark"] .nav-button {
+  background-color: #1a1a1a;
+  color: #d0d0d0;
+}
+
+html[data-theme="dark"] .nav-button:hover {
+  background-color: #252525;
+}
+
+html[data-theme="dark"] .footer {
   color: #555;
 }
 
-body[data-theme="dark"] .scroll-indicator .line {
-  background: linear-gradient(to bottom, #555, transparent);
+html[data-theme="dark"] .scroll-indicator {
+  color: #333;
 }
 
-body[data-theme="dark"] .scroll-indicator .line::after {
-  background: #131313;
+html[data-theme="dark"] .scroll-indicator .line {
+  background: linear-gradient(to bottom, #333, transparent);
 }
 
-body[data-theme="dark"] .search-box input {
-  background-color: #2a2a2a;
-  color: #e0e0e0;
-  border-color: #444;
+html[data-theme="dark"] .scroll-indicator .line::after {
+  background: #080808;
 }
 
-body[data-theme="dark"] .filter-btn,
-body[data-theme="dark"] .sort-btn {
-  background-color: #2a2a2a;
-  color: #e0e0e0;
-}
-
-body[data-theme="dark"] .filter-btn:hover,
-body[data-theme="dark"] .sort-btn:hover {
-  background-color: #3a3a3a;
-}
-
-body[data-theme="dark"] .filter-btn.active,
-body[data-theme="dark"] .sort-btn.active {
-  background-color: #e0e0e0;
-  color: #131313;
-}
-
-body[data-theme="dark"] .blog-item {
-  background-color: #1e1e1e;
+html[data-theme="dark"] .search-box input {
+  background-color: #1a1a1a;
+  color: #d0d0d0;
   border-color: #333;
 }
 
-body[data-theme="dark"] .blog-item:hover {
-  background-color: #2a2a2a;
+html[data-theme="dark"] .filter-btn,
+html[data-theme="dark"] .sort-btn {
+  background-color: #1a1a1a;
+  color: #d0d0d0;
 }
 
-body[data-theme="dark"] .blog-item-category {
-  background-color: #e0e0e0;
-  color: #131313;
+html[data-theme="dark"] .filter-btn:hover,
+html[data-theme="dark"] .sort-btn:hover {
+  background-color: #252525;
 }
 
-body[data-theme="dark"] .blog-breadcrumb,
-body[data-theme="dark"] .blog-breadcrumb a {
-  color: #999;
+html[data-theme="dark"] .filter-btn.active,
+html[data-theme="dark"] .sort-btn.active {
+  background-color: #d0d0d0;
+  color: #080808;
 }
 
-body[data-theme="dark"] .blog-breadcrumb a:hover {
-  color: #e0e0e0;
+html[data-theme="dark"] .blog-item {
+  background-color: #111;
+  border-color: #222;
 }
 
-body[data-theme="dark"] .blog-content h2 {
-  border-bottom-color: #333;
+html[data-theme="dark"] .blog-item:hover {
+  background-color: #181818;
 }
 
-body[data-theme="dark"] .blog-content pre {
-  background-color: #1e1e1e;
+html[data-theme="dark"] .blog-item-category {
+  background-color: #d0d0d0;
+  color: #080808;
 }
 
-body[data-theme="dark"] .no-results {
+html[data-theme="dark"] .blog-breadcrumb,
+html[data-theme="dark"] .blog-breadcrumb a {
   color: #777;
+}
+
+html[data-theme="dark"] .blog-breadcrumb a:hover {
+  color: #d0d0d0;
+}
+
+html[data-theme="dark"] .blog-content h2 {
+  border-bottom-color: #222;
+}
+
+html[data-theme="dark"] .blog-content pre {
+  background-color: #111;
+}
+
+html[data-theme="dark"] .no-results {
+  color: #555;
 }
 
 .container {
@@ -284,12 +284,13 @@ a:hover::after {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  display: grid;
+  place-items: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.7;
+  width: 40px;
+  height: 40px;
 }
 
 .theme-toggle:hover,
@@ -300,40 +301,36 @@ a:hover::after {
 
 .theme-toggle img,
 .scroll-to-top img {
+  grid-area: 1/1;
   width: 24px;
   height: 24px;
-  display: block;
 }
 
-.theme-icon-light {
-  display: block;
-}
-
-.theme-icon-dark {
-  display: none;
-}
-
-body[data-theme="dark"] .theme-icon-light {
-  display: none;
-}
-
-body[data-theme="dark"] .theme-icon-dark {
-  display: block;
-}
-
+.theme-icon-light,
 .scroll-icon-light {
   display: block;
 }
 
+.theme-icon-dark,
 .scroll-icon-dark {
   display: none;
 }
 
-body[data-theme="dark"] .scroll-icon-light {
+html[data-theme="dark"] .theme-icon-light,
+html[data-theme="dark"] .scroll-icon-light {
   display: none;
 }
 
-body[data-theme="dark"] .scroll-icon-dark {
+html[data-theme="dark"] .theme-icon-dark,
+html[data-theme="dark"] .scroll-icon-dark {
+  display: block;
+}
+
+html[data-theme="dark"] .scroll-icon-light {
+  display: none;
+}
+
+html[data-theme="dark"] .scroll-icon-dark {
   display: block;
 }
 
