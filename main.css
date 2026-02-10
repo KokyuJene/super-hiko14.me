@@ -28,6 +28,7 @@
 
 * {
   font-family: 'jost', 'zenkaku', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -35,6 +36,13 @@ body {
   background-color: #fff;
   color: #000;
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-touch-callout: none;
 }
 
 /* Dark mode */
@@ -133,6 +141,10 @@ html[data-theme="dark"] .blog-breadcrumb a:hover {
   color: #d0d0d0;
 }
 
+html[data-theme="dark"] a {
+  color: inherit;
+}
+
 html[data-theme="dark"] .blog-content h2 {
   border-bottom-color: #222;
 }
@@ -200,7 +212,7 @@ html[data-theme="dark"] .no-results {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
   position: relative;
   display: inline-block;
