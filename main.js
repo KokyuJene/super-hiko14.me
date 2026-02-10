@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Theme management
+  initTheme();
+  
+  // Scroll to top functionality
+  initScrollToTop();
+
   const observerOptions = {
     root: null,
     rootMargin: "0px 0px -15% 0px",
@@ -20,6 +26,35 @@ document.addEventListener('DOMContentLoaded', () => {
     initBlogPage();
   }
 });
+
+function initTheme() {
+  // Load saved theme or default to light
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.body.setAttribute('data-theme', savedTheme);
+
+  // Theme toggle button
+  const themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+}
+
+function initScrollToTop() {
+  const scrollBtn = document.querySelector('.scroll-to-top');
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+}
 
 function initBlogPage() {
   const blogList = document.getElementById('blog-list');

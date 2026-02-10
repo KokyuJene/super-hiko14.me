@@ -33,6 +33,116 @@
 body {
   margin: 0;
   background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode */
+body[data-theme="dark"] {
+  background-color: #131313;
+  color: #e0e0e0;
+}
+
+body[data-theme="dark"] .sub-title {
+  color: #999;
+}
+
+body[data-theme="dark"] .description {
+  color: #ccc;
+}
+
+body[data-theme="dark"] .game-item,
+body[data-theme="dark"] .lang-item {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body[data-theme="dark"] .game-item:hover,
+body[data-theme="dark"] .lang-item:hover {
+  background-color: #3a3a3a;
+}
+
+body[data-theme="dark"] .nav-button {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body[data-theme="dark"] .nav-button:hover {
+  background-color: #3a3a3a;
+}
+
+body[data-theme="dark"] .footer {
+  color: #777;
+}
+
+body[data-theme="dark"] .scroll-indicator {
+  color: #555;
+}
+
+body[data-theme="dark"] .scroll-indicator .line {
+  background: linear-gradient(to bottom, #555, transparent);
+}
+
+body[data-theme="dark"] .scroll-indicator .line::after {
+  background: #131313;
+}
+
+body[data-theme="dark"] .search-box input {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body[data-theme="dark"] .filter-btn,
+body[data-theme="dark"] .sort-btn {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body[data-theme="dark"] .filter-btn:hover,
+body[data-theme="dark"] .sort-btn:hover {
+  background-color: #3a3a3a;
+}
+
+body[data-theme="dark"] .filter-btn.active,
+body[data-theme="dark"] .sort-btn.active {
+  background-color: #e0e0e0;
+  color: #131313;
+}
+
+body[data-theme="dark"] .blog-item {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body[data-theme="dark"] .blog-item:hover {
+  background-color: #2a2a2a;
+}
+
+body[data-theme="dark"] .blog-item-category {
+  background-color: #e0e0e0;
+  color: #131313;
+}
+
+body[data-theme="dark"] .blog-breadcrumb,
+body[data-theme="dark"] .blog-breadcrumb a {
+  color: #999;
+}
+
+body[data-theme="dark"] .blog-breadcrumb a:hover {
+  color: #e0e0e0;
+}
+
+body[data-theme="dark"] .blog-content h2 {
+  border-bottom-color: #333;
+}
+
+body[data-theme="dark"] .blog-content pre {
+  background-color: #1e1e1e;
+}
+
+body[data-theme="dark"] .no-results {
+  color: #777;
 }
 
 .container {
@@ -156,6 +266,75 @@ a:hover::after {
   color: #999;
   margin-top: 20px;
   padding: 0 20px;
+  position: relative;
+}
+
+.footer-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.theme-toggle,
+.scroll-to-top {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+.theme-toggle:hover,
+.scroll-to-top:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.theme-toggle img,
+.scroll-to-top img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.theme-icon-light {
+  display: block;
+}
+
+.theme-icon-dark {
+  display: none;
+}
+
+body[data-theme="dark"] .theme-icon-light {
+  display: none;
+}
+
+body[data-theme="dark"] .theme-icon-dark {
+  display: block;
+}
+
+.scroll-icon-light {
+  display: block;
+}
+
+.scroll-icon-dark {
+  display: none;
+}
+
+body[data-theme="dark"] .scroll-icon-light {
+  display: none;
+}
+
+body[data-theme="dark"] .scroll-icon-dark {
+  display: block;
 }
 
 .nav-buttons {
@@ -442,6 +621,16 @@ a:hover::after {
 
   .blog-content h3 {
     font-size: 1.1rem;
+  }
+
+  .footer-controls {
+    padding: 0 10px;
+  }
+
+  .theme-toggle img,
+  .scroll-to-top img {
+    width: 20px;
+    height: 20px;
   }
 }
 
