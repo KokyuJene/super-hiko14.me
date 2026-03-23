@@ -291,11 +291,162 @@
         </div>
         <div class="footer-credit" aria-label="Created by Super Hiko14">
           <div class="footer-credit-label">Created by</div>
-          <div class="footer-credit-main">Super Hiko14<span class="footer-credit-dot">.</span></div>
+          <div class="footer-credit-main">Super Hiko14<span class="footer-credit-dot" role="button" tabindex="0" aria-label="Hikoの黒歴史を表示">.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 黒歴史確認ダイアログ -->
+    <div id="black-history-dialog" class="black-history-dialog" role="alertdialog" aria-labelledby="dialog-title" hidden>
+      <div class="black-history-dialog-content">
+        <h2 id="dialog-title">Hikoの黒歴史を見ますか?</h2>
+        <div class="black-history-dialog-buttons">
+          <button class="black-history-btn-view" data-action="view">見る</button>
+          <button class="black-history-btn-cancel" data-action="cancel">見ない</button>
         </div>
       </div>
     </div>
   </main>
+
+  <style>
+    /* Black History Dialog */
+    .black-history-dialog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .black-history-dialog[hidden] {
+      display: none;
+    }
+
+    .black-history-dialog-content {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 32px;
+      max-width: 320px;
+      width: 85%;
+      text-align: center;
+      font-family: 'Jost', sans-serif;
+    }
+
+    .black-history-dialog-content h2 {
+      margin: 0 0 24px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+
+    .black-history-dialog-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .black-history-dialog-buttons button {
+      padding: 12px;
+      border: none;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      flex: 1;
+      transition: opacity 0.2s;
+    }
+
+    .black-history-btn-view {
+      background: #275766;
+      color: white;
+    }
+
+    .black-history-btn-cancel {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .black-history-dialog-buttons button:hover {
+      opacity: 0.8;
+    }
+
+    .footer-credit-dot {
+      cursor: pointer;
+    }
+
+    /* Dark mode */
+    html[data-theme="dark"] .black-history-dialog {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    html[data-theme="dark"] .black-history-dialog-content {
+      background: #0e0e0e;
+    }
+
+    html[data-theme="dark"] .black-history-dialog-content h2 {
+      color: #eeeeee;
+    }
+
+    html[data-theme="dark"] .black-history-btn-cancel {
+      background: #333333;
+      color: #cccccc;
+    }
+
+    html[data-theme="dark"] .black-history-btn-view {
+      background: #275766;
+    }
+  </style>
+
+  <script>
+    document.querySelectorAll('.footer-credit-dot').forEach(dot => {
+      dot.addEventListener('click', showBlackHistoryDialog);
+      dot.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          showBlackHistoryDialog();
+        }
+      });
+    });
+
+    function showBlackHistoryDialog() {
+      const dialog = document.getElementById('black-history-dialog');
+      if (!dialog) return;
+
+      dialog.removeAttribute('hidden');
+
+      const handleAction = (action) => {
+        dialog.setAttribute('hidden', '');
+        document.removeEventListener('click', eventHandler);
+
+        if (action === 'view') {
+          window.location.href = 'https://hikononikki.notion.site/';
+        }
+      };
+
+      const eventHandler = (e) => {
+        const button = e.target.closest('[data-action]');
+        if (button) {
+          const action = button.getAttribute('data-action');
+          handleAction(action);
+        }
+      };
+
+      document.addEventListener('click', eventHandler);
+    }
+  </script>
 </body>
 </html>
 
